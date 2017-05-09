@@ -58,6 +58,7 @@ Whitespace conventions:
 - Added `String#ascii_only?` (#1592)
 - Added `StringScanner#matched_size` (#1595)
 - Added `Hash#compare_by_identity` (#1657)
+- Added `nodejs/stacktrace` to *stdlib* that will print an MRI style stacktrace
 
 
 ### Removed

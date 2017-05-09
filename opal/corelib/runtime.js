@@ -85,7 +85,7 @@
 
   // Minify common function calls
   var $hasOwn = Object.hasOwnProperty;
-  var $slice  = Opal.slice = Array.prototype.slice;
+  Opal.slice = Array.prototype.slice;
 
   // Nil object id is always 4
   var nil_id = 4;
@@ -1660,6 +1660,9 @@
 
   // Define method on a module or class (see Opal.def).
   Opal.defn = function(obj, jsid, body) {
+    var ruby_id = jsid.slice(1);
+    body.displayName = ruby_id;
+
     obj.$$proto[jsid] = body;
     // for super dispatcher, etc.
     body.$$owner = obj;
@@ -1690,7 +1693,7 @@
       singleton_of.$singleton_method_added(jsid.substr(1));
     }
 
-    return nil;
+    return ruby_id;
   };
 
   // Define a singleton method on the given object (see Opal.def).
