@@ -18,3 +18,4 @@ build/
 # Ignore old submodules, useful when switching branches
 spec/corelib
 spec/rubyspec
+/vendor/
